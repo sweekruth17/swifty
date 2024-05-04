@@ -23,7 +23,7 @@ const Home = () => {
           <TabsTrigger value="Tickets"> Add Tickets</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="table" className="mt-6 text-center">
+        <TabsContent value="table" className="mt-6 text-center mb-24">
           <Card className="bg-transparent text-white">
             <CardHeader>
               <CardTitle>Monitor all your tickets here</CardTitle>
