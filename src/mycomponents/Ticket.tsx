@@ -19,7 +19,8 @@ import {
   FormItem,
   FormMessage,
 } from "../components/ui/form";
-
+import { ToastAction } from "@/components/ui/toast";
+import { useToast } from "@/components/ui/use-toast";
 enum severityType {
   low = "low",
   medium = "medium",
@@ -38,6 +39,7 @@ type FormField = {
   status: statusType;
 };
 const Ticket = () => {
+  const { toast } = useToast();
   const form = useForm<FormField>();
   const {
     control,
@@ -55,6 +57,13 @@ const Ticket = () => {
       )
       .then((response) => {
         console.log("response Status", response.status);
+        if (response.status === 200) {
+          toast({
+            title: "Ticket created Successfully ",
+            description: "Happy ticketing",
+            action: <ToastAction altText="Ticket created">OK</ToastAction>,
+          });
+        }
       });
 
     console.log("Ticket details submitted");
